@@ -13,7 +13,7 @@ answers.extend(['My reply is no','My sources say no','Outlook not so good'])
 answers.extend(['Outlook good','Reply hazy, try again','Signs point to yes'])
 answers.extend(['Very doubtful','Without a doubt','Yes.'])
 answers.extend(['Yes-definetly','You may rely on it','No.'])
-
+print(answers)
 def answer():
     screen1=Toplevel(screen)
     screen1.title('Magic 8-Ball')

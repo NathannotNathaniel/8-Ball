@@ -4,7 +4,6 @@ import os
 
 import random
 
-#varibles
 #Template for List extension-answers.extend(['','',''])
 answers=['As I see it, yes.','Ask agin later','Better not tell you now']
 answers.extend(['Cannot predict now','Concentrate and ask again',"Don't count on it"])
@@ -32,12 +31,12 @@ def mainScreen():
     screen=Tk()
     screen.geometry('700x600')
     screen.title('Magic 8-Ball')
-    screen.configure(bg='black')
+    screen.config(bg='black')
     global question
     question=StringVar()
 
-    Label(screen,text='Magic 8-Ball',bg='black',fg='purple',width='30',height='5',font=('Sans',40)).pack()
-    Entry(screen, textvariable=question,bg='white',fg='purple', width='40').pack()
+    Label(screen,text='Magic 8-Ball',bg='black',fg='purple',width='30',height='5',font=('verdana',40)).pack()
+    Entry(screen, textvariable=question,bg='black',fg='purple', width='40',font=('verdana',15)).pack()
     Label(screen,text='',bg='black').pack()
     Label(screen,text='',bg='black').pack()
     Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=answer).pack()

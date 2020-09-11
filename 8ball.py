@@ -23,8 +23,6 @@ def answer():
     Label(screen1,text=random.choice(answers),bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
     Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
 
-
-
 def mainScreen():
     global screen
 
@@ -36,14 +34,13 @@ def mainScreen():
     question=StringVar()
 
     Label(screen,text='Magic 8-Ball',bg='black',fg='purple',width='30',height='5',font=('verdana',40)).pack()
-    Entry(screen, textvariable=question,bg='black',fg='purple', width='40',font=('verdana',15)).pack()
+    q=Entry(screen, textvariable=question,bg='black',fg='purple', width='40',font=('verdana',15)).pack()
     Label(screen,text='',bg='black').pack()
     Label(screen,text='',bg='black').pack()
     Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=answer).pack()
 
-    screen.mainloop()
-
     
+    screen.mainloop()
 
 
 

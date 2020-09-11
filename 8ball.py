@@ -13,22 +13,36 @@ answers.extend(['Outlook good','Reply hazy, try again','Signs point to yes'])
 answers.extend(['Very doubtful','Without a doubt','Yes.'])
 answers.extend(['Yes-definetly','You may rely on it','No.'])
 print(answers)
+
+
+def getQ():
+    global user
+    user=question.get()
+
+    f=open('q1.txt','w+')
+    f.write(user)
+    f.close()
+
+def getA():
+    global magic
+    magic=ans.get()
+
+    f=open('q1.txt','a+')
+    f.write(magic)
+    f.close
+
 def answer():
     screen1=Toplevel(screen)
     screen1.title('Magic 8-Ball')
     screen1.geometry('700x600')
     screen1.configure(bg='black')
+    global ans
+    ans=StringVar()
+
     Label(screen1,text='The 8-Ball says...',bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
-    Label(screen1,text=random.choice(answers),bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
+    Label(screen1,text=random.choice(answers),textvariable=ans,bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
     Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
-
-def getQ():
-    global user
-    user=question.get()
-    f=open('q1.txt','w+')
-    f.write(user)
-    f.close()
-
+    Button(screen1,text='Get Answers',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= getA).place(x=475,y=0)
 
 def mainScreen():
     global screen

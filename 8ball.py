@@ -18,10 +18,17 @@ def answer():
     screen1.title('Magic 8-Ball')
     screen1.geometry('700x600')
     screen1.configure(bg='black')
-
     Label(screen1,text='The 8-Ball says...',bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
     Label(screen1,text=random.choice(answers),bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
     Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
+
+def getQ():
+    global user
+    user=question.get()
+    f=open('q1.txt','w+')
+    f.write(user)
+    f.close()
+
 
 def mainScreen():
     global screen
@@ -37,9 +44,9 @@ def mainScreen():
     q=Entry(screen, textvariable=question,bg='black',fg='purple', width='40',font=('verdana',15)).pack()
     Label(screen,text='',bg='black').pack()
     Label(screen,text='',bg='black').pack()
-    Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=answer).pack()
+    Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= answer).pack()
+    Button(screen,text='Get Questions',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= getQ).place(x=475,y=0)
 
-    
     screen.mainloop()
 
 

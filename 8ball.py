@@ -20,7 +20,7 @@ def getQ():
     user=question.get()
 
     f=open('q1.txt','w+')
-    f.write(user)
+    f.write('Question: '+user+'\n')
     f.close()
 
 def getA():
@@ -28,7 +28,7 @@ def getA():
     magic=ans.get()
 
     f=open('q1.txt','a+')
-    f.write(magic)
+    f.write('Answer: '+magic)
     f.close
 
 def answer():
@@ -40,7 +40,8 @@ def answer():
     ans=StringVar()
 
     Label(screen1,text='The 8-Ball says...',bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
-    Label(screen1,text=random.choice(answers),textvariable=ans,bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
+    Label(screen1,textvariable=ans,bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
+    ans.set(random.choice(answers))
     Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
     Button(screen1,text='Get Answers',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= getA).place(x=475,y=0)
 

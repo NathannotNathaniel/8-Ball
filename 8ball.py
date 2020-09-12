@@ -8,8 +8,7 @@ import os
 import random
 
 #To do List
-    #Have user be able to view q1 file
-    #Have multiple commands so you can hit roll and record question (Maybe put the buttons in the same palce using .place() instead of pack
+    #How to make it put the answer on screen when you ask a question a second time
     #Figure out how to delted a screen so that a bunch of screens don't stay on while you 
     #Try to put 8-ball image in screens
 
@@ -78,10 +77,13 @@ def answer():
     Label(screen1,textvariable=ans,bg='black',fg='purple',width='30',height='5',font=('Sans',30)).pack()
     #set means you can add the text without putting the text in the widget
     ans.set(random.choice(answers))
-    #Buttom to send User back to hoem screen to ask another question
-    Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
-    #Button to record random list value in q1 file
-    Button(screen1,text='Get Answers',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= getA).place(x=475,y=0)
+    getA()#To record random list value in q1 file
+    #Buttom to send User back to hoem screen to ask another question and to record random list value in q1 file
+    Button(screen1,text='Back',width='20',height='2',bg='purple',fg='black',
+                    font=('Sans',15),command=mainScreen).pack()
+    #To view the Q and A file
+    Button(screen1,text='Views Questions\nand Answers',width='13',height='3',bg='purple',
+                        fg='black',font=('Sans',15),command= viewQA).place(x=0,y=0)
 
 #Home screen to ask question
 def mainScreen():
@@ -99,9 +101,9 @@ def mainScreen():
     #Blank space to seperate Button and Entry ( don't have to this for other formats liek .palce() or grid() )
     Label(screen,text='',bg='black').pack()
     Label(screen,text='',bg='black').pack()
-    #Button to get Magic 8 Ball answer for question
-    Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command= lambda:[getQ(),answer()]).place(x=235,y=402)
-    #To view the Q and A file
+    #Button to get Magic 8 Ball answer for question and to record question in q1
+    Button(screen,text='Roll',width='20',height='2',bg='purple',fg='black',
+                font=('Sans',15),command= lambda:[getQ(),answer()]).place(x=235,y=402)
     Button(screen,text='Views Questions\nand Answers',width='13',height='3',bg='purple',
                         fg='black',font=('Sans',15),command= viewQA).place(x=0,y=0)
 

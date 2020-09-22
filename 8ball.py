@@ -61,7 +61,6 @@ def viewQA():
     Button(screen2,text='Back',width='20',height='2',bg='purple',fg='black',font=('Sans',15),command=mainScreen).pack()
     f.close()
 
-
 def answer():
     screen1=Toplevel(screen) #puts screen1 over screen
     screen1.title('Magic 8-Ball')
